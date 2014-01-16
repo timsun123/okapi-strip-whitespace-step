@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.spartansoftwareinc.okapi.steps</groupId>
+  <artifactId>strip-whitespace-step</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>strip-whitespace-step</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <okapi.version>0.24</okapi.version>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>okapi-release</id>
+      <name>Okapi Release</name>
+      <url>http://repository-okapi.forge.cloudbees.com/release/</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.okapi</groupId>
+      <artifactId>okapi-core</artifactId>
+      <version>${okapi.version}</version>
+    </dependency>
+  </dependencies>
+</project>
