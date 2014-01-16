@@ -44,6 +44,14 @@ public class TestStripWhitespaceStep {
 		ITextUnit tu = tus.get(0);
 		assertEquals("Sentence 1.Sentence 2.", tu.getTarget(LocaleId.CHINA_CHINESE).toString());
     }
+
+    @Test
+    public void testStripWhitespaceInTraditionalChinese() throws URISyntaxException {
+		List<ITextUnit> tus = filterTus(runPipelineFor("/test1.html", LocaleId.TAIWAN_CHINESE));
+		assertEquals(1, tus.size());
+		ITextUnit tu = tus.get(0);
+		assertEquals("Sentence 1.Sentence 2.", tu.getTarget(LocaleId.TAIWAN_CHINESE).toString());
+    }
     
     @Test
     public void testNoStripWhitespaceInFrench() throws URISyntaxException {
