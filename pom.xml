@@ -35,5 +35,29 @@
       <artifactId>okapi-core</artifactId>
       <version>${okapi.version}</version>
     </dependency>
+    <dependency>
+      <groupId>net.sf.okapi.steps</groupId>
+      <artifactId>okapi-step-common</artifactId>
+      <version>${okapi.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.okapi.steps</groupId>
+      <artifactId>okapi-step-segmentation</artifactId>
+      <version>${okapi.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.okapi.lib</groupId>
+      <artifactId>okapi-lib-extra</artifactId>
+      <version>${okapi.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.okapi.filters</groupId>
+      <artifactId>okapi-filter-html</artifactId>
+      <version>${okapi.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 </project>
