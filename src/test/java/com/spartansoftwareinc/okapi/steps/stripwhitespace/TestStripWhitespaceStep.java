@@ -1,6 +1,5 @@
 package com.spartansoftwareinc.okapi.steps.stripwhitespace;
 
-import java.io.File;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
