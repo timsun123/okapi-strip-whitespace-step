@@ -2,14 +2,14 @@ package com.spartansoftwareinc.okapi.steps.stripwhitespace;
 
 import net.sf.okapi.common.Event;
 import net.sf.okapi.common.LocaleId;
-import net.sf.okapi.common.StringParameters;
+import net.sf.okapi.common.BaseParameters;
 import net.sf.okapi.common.UsingParameters;
 import net.sf.okapi.common.pipeline.BasePipelineStep;
 import net.sf.okapi.common.resource.ITextUnit;
 import net.sf.okapi.common.resource.TextContainer;
 import net.sf.okapi.common.resource.TextPart;
 
-@UsingParameters(StringParameters.class) // XXX no actual parameters
+@UsingParameters(StripWhitespaceParameters.class) // XXX no actual parameters
 public class StripWhitespaceStep extends BasePipelineStep {
 
     public String getDescription() {
