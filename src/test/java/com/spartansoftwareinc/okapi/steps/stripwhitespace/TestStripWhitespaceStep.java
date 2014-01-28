@@ -2,6 +2,7 @@ package com.spartansoftwareinc.okapi.steps.stripwhitespace;
 
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import net.sf.okapi.common.ClassUtil;
@@ -33,7 +34,7 @@ public class TestStripWhitespaceStep {
 		List<ITextUnit> tus = filterTus(runPipelineFor("/test1.html", LocaleId.JAPANESE));
 		assertEquals(1, tus.size());
 		ITextUnit tu = tus.get(0);
-		assertEquals("Sentence 1.Sentence 2.", tu.getTarget(LocaleId.JAPANESE).toString());
+		assertEquals("Sentence 1.Sentence 2.", tu.getSource().toString());
     }
     
     @Test
@@ -41,7 +42,7 @@ public class TestStripWhitespaceStep {
 		List<ITextUnit> tus = filterTus(runPipelineFor("/test1.html", LocaleId.CHINA_CHINESE));
 		assertEquals(1, tus.size());
 		ITextUnit tu = tus.get(0);
-		assertEquals("Sentence 1.Sentence 2.", tu.getTarget(LocaleId.CHINA_CHINESE).toString());
+		assertEquals("Sentence 1.Sentence 2.", tu.getSource().toString());
     }
 
     @Test
@@ -49,7 +50,7 @@ public class TestStripWhitespaceStep {
 		List<ITextUnit> tus = filterTus(runPipelineFor("/test1.html", LocaleId.TAIWAN_CHINESE));
 		assertEquals(1, tus.size());
 		ITextUnit tu = tus.get(0);
-		assertEquals("Sentence 1.Sentence 2.", tu.getTarget(LocaleId.TAIWAN_CHINESE).toString());
+		assertEquals("Sentence 1.Sentence 2.", tu.getSource().toString());
     }
     
     @Test
@@ -57,11 +58,13 @@ public class TestStripWhitespaceStep {
 		List<ITextUnit> tus = filterTus(runPipelineFor("/test1.html", LocaleId.FRENCH));
 		assertEquals(1, tus.size());
 		ITextUnit tu = tus.get(0);
-		assertEquals("Sentence 1. Sentence 2.", tu.getTarget(LocaleId.FRENCH).toString());
+		assertEquals("Sentence 1. Sentence 2.", tu.getSource().toString());
     }
     
     private List<Event> runPipelineFor(String filename, LocaleId targetLocale) throws URISyntaxException {
     	EventListBuilderStep elbs = new EventListBuilderStep();
+    	StripWhitespaceStep stripWhitespaceStep = new StripWhitespaceStep();
+    	stripWhitespaceStep.setTargetLocales(Collections.singletonList(targetLocale));
     	new XPipeline(
 				"Test pipeline for StripWhitespaceStep",
 				new XBatch(
@@ -78,7 +81,7 @@ public class TestStripWhitespaceStep {
 					new XParameter("trimSrcLeadingWS", Parameters.TRIM_YES),
 					new XParameter("trimSrcTrailingWS", Parameters.TRIM_YES)
 				),
-				new StripWhitespaceStep(),
+				stripWhitespaceStep,
 				elbs
 		).execute();
     	return elbs.getList();

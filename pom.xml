@@ -39,7 +39,6 @@
       <groupId>net.sf.okapi.steps</groupId>
       <artifactId>okapi-step-common</artifactId>
       <version>${okapi.version}</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>net.sf.okapi.steps</groupId>
